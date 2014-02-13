@@ -1,0 +1,80 @@
+<?php
+include_once('inc/collatool_email_reader.functions.inc');
+
+function collatool_email_reader_menu() {
+  $items = array();
+
+  $items['email/read'] = array(
+    'title' => 'Read the email',
+    'page callback' => 'collatool_email_reader_cron',
+    'type' => MENU_NORMAL_ITEM,
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
+
+function collatool_email_reader_cron() {
+  print_r('started<br/><br/>');
+
+  $users = db_select('users', 'u')
+    ->fields('u', array('uid'))
+    ->execute()
+    ->fetchAll();
+
+  foreach ($users as $user) {
+    $full_user = user_load($user->uid);
+
+    $email = $full_user->field_user_email['und'][0]['value'];
+    $host = $full_user->field_user_email_host['und'][0]['value'];
+    $port = $full_user->field_user_email_port['und'][0]['value'];
+    $encryption = $full_user->field_user_email_encryption['und'][0]['value'];
+    $password = $full_user->field_user_email_password['und'][0]['value'];
+
+    if (!empty($email) && !empty($host) && !empty($port) && !empty($password)) {
+      //creates a hostname connection string such as: '{mail.bellcom.dk:143/imap}INBOX' or '{imap.gmail.com:993/imap/ssl}INBOX';
+      $hostname = '{' . $host . ':' . $port . '/imap';
+      $hostname .= (!empty($encryption)) ? '/' . $encryption : '';
+      $hostname .= '}INBOX';
+
+      try {
+        //imap_timeout(IMAP_OPENTIMEOUT, 5);
+        $inbox = imap_open($hostname, $email, $password); // or die('Cannot connect to Email: ' . imap_last_error());
+        $emails = imap_search($inbox, 'UNSEEN');
+
+        if ($emails) {
+          $output = '';
+          rsort($emails);
+
+          foreach ($emails as $email_number) {
+            $message = array();
+
+            //general information
+            $message = collatool_email_reader_get_message_general_info($inbox, $email_number);
+
+            //body
+            $message['body'] = collatool_email_reader_get_message_body($inbox,$email_number);
+            print_r($message['body']);
+//            $output .= '<div class="subject">Subject: ' . $subject. '</div> ';
+//            $output .= '<div class="from">From: ' .  $from  . '</div>';
+//            $output .= '<div class="date">Date: ' . $date . '</div>';
+//            $output .= '<div class="date">UID: ' . $uid . '</div>';
+//            $output .= '<div class="body">Body: ' . $message_body . '</div></br></br>';
+
+            collatool_rabbitmq_message_send($message, 'email');
+            //TODO: add to the list of read emails
+          }
+
+          echo $output;
+        }
+
+        imap_close($inbox);
+      } catch (Exception $e) {
+        throw new Exception('Something really gone wrong', 0, $e);
+      }
+    }
+    echo "<br/><br/><hr><br/><br/>";
+  }
+
+  print_r('<br/><br/ >done');
+}

@@ -1,0 +1,12 @@
+name = RabbitMQ
+description = "RabbitMQ Integration for Drupal"
+core = 7.x
+
+files[] = rabbitmq.queue.inc
+
+; Information added by drupal.org packaging script on 2012-08-22
+version = "7.x-0.1"
+core = "7.x"
+project = "rabbitmq"
+datestamp = "1345600637"
+

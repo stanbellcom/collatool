@@ -1,0 +1,43 @@
+{
+    "exchanges": [
+        {
+            "name": "msg_exchange",
+            "type": "topic",
+            "passive": false,
+            "durable": false,
+            "auto_delete": false,
+            "internal": false,
+            "nowait": false
+        }
+    ],
+    "queues": [
+        {
+            "name": "msg_email_queue",
+            "passive": false,
+            "durable": false,
+            "exclusive": false,
+            "auto_delete": false,
+            "nowait": false,
+            "bindings": [
+                {
+                    "exchange": "msg_exchange",
+                    "routing_key": "email.#"
+                }
+            ]
+        },
+        {
+            "name": "msg_im_queue",
+            "passive": false,
+            "durable": false,
+            "exclusive": false,
+            "auto_delete": false,
+            "nowait": false,
+            "bindings": [
+                {
+                    "exchange": "msg_exchange",
+                    "routing_key": "im.#"
+                }
+            ]
+        }
+    ]
+}
