@@ -54,7 +54,7 @@ function collatool_email_reader_cron() {
 
             //body
             $message['body'] = collatool_email_reader_get_message_body($inbox,$email_number);
-            print_r($message['body']);
+//            print_r($message['body']);
 //            $output .= '<div class="subject">Subject: ' . $subject. '</div> ';
 //            $output .= '<div class="from">From: ' .  $from  . '</div>';
 //            $output .= '<div class="date">Date: ' . $date . '</div>';
