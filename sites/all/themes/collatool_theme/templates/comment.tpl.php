@@ -85,5 +85,5 @@
     <p class="submitted comment__submitted"><?php print $submitted; ?></p>
   </footer>
 
-  <?php //print render($content['links']) ?>
+  <?php print render($content['links']) ?>
 </article>

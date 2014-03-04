@@ -3,14 +3,16 @@
 function collatool_email_reader_get_message_general_info($inbox, $email_number) {
   $overview = imap_fetch_overview($inbox, $email_number, 0);
   $subject = imap_utf8($overview[0]->subject);
-  $from = imap_utf8($overview[0]->from);
+  $sender = imap_utf8($overview[0]->from);
+  $receiver = imap_utf8($overview[0]->to);
   $date = $overview[0]->date;
   $uid = $overview[0]->uid;
 
   $message = array(
     'id' => $uid,
     'date' => $date,
-    'sender' => $from,
+    'sender' => $sender,
+    'receiver' => $receiver,
     'subject' => $subject,
   );
 
@@ -19,17 +21,23 @@ function collatool_email_reader_get_message_general_info($inbox, $email_number) 
 
 function collatool_email_reader_get_message_body($inbox, $email_number) {
   $structure = imap_fetchstructure($inbox, $email_number);
-  $flattenedParts = collatool_email_reader_flatten_parts($structure->parts);
-  foreach ($flattenedParts as $partNumber => $part) {
-    switch ($part->type) {
-      case 0:
-        // the HTML or plain text part of the email
-        $message = utf8_encode(collatool_email_reader_get_part($inbox, $email_number, $partNumber, $part->encoding));
-        return $message;
-        // now do something with the message, e.g. render it
-        break;
-      default:
-        break;
+
+  if ($structure->subtype == 'PLAIN') {
+    $message = utf8_encode($data = imap_fetchbody($inbox, $email_number, 1, FT_PEEK));
+    return $message;
+  }
+  else {
+    $flattenedParts = collatool_email_reader_flatten_parts($structure->parts);
+    foreach ($flattenedParts as $partNumber => $part) {
+      switch ($part->type) {
+        case 0:
+          // the HTML or plain text part of the email
+          $message = utf8_encode(collatool_email_reader_get_part($inbox, $email_number, $partNumber, $part->encoding));
+          return $message;
+          // now do something with the message, e.g. render it
+          break;
+        default:
+          break;
 //      For future improvements
 //      case 1: // multi-part headers, can ignore
 //        break;
@@ -50,6 +58,7 @@ function collatool_email_reader_get_message_body($inbox, $email_number) {
 //          // don't know what it is
 //        }
 //        break;
+      }
     }
   }
 }
@@ -76,7 +85,6 @@ function collatool_email_reader_flatten_parts($messageParts, $flattenedParts = a
 }
 
 function collatool_email_reader_get_part($connection, $messageNumber, $partNumber, $encoding) {
-
   $data = imap_fetchbody($connection, $messageNumber, $partNumber, FT_PEEK);
   switch ($encoding) {
     case 0:

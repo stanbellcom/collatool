@@ -1,0 +1,26 @@
+<?php
+function collatool_email_reader_schema() {
+  $schema['collatool_email'] = array(
+    'description' => 'This table is to store the last timestamp of sync with every email',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'The id of the user to whom the email is attached',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'email' => array(
+        'description' => 'The email address',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'last_sync' => array(
+        'description' => 'The datetime of the last sync',
+        'type' => 'int',
+        //'mysql_type' => 'datetime',
+      ),
+    ),
+    'primary key' => array('uid', 'email'),
+  );
+  return $schema;
+}

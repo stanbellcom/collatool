@@ -16,6 +16,7 @@ function collatool_email_reader_menu() {
 
 function collatool_email_reader_cron() {
   print_r('started<br/><br/>');
+  print_r('<pre>');
 
   $users = db_select('users', 'u')
     ->fields('u', array('uid'))
@@ -24,7 +25,6 @@ function collatool_email_reader_cron() {
 
   foreach ($users as $user) {
     $full_user = user_load($user->uid);
-
     $email = $full_user->field_user_email['und'][0]['value'];
     $host = $full_user->field_user_email_host['und'][0]['value'];
     $port = $full_user->field_user_email_port['und'][0]['value'];
@@ -40,40 +40,55 @@ function collatool_email_reader_cron() {
       try {
         //imap_timeout(IMAP_OPENTIMEOUT, 5);
         $inbox = imap_open($hostname, $email, $password); // or die('Cannot connect to Email: ' . imap_last_error());
+        $last_sync = db_select('collatool_email', 'ce')
+          ->fields('ce', array('last_sync'))
+          ->condition('uid', $user->uid, '=')
+          ->execute()
+          ->fetchField();
+        $last_sync_date = date('d-M-Y', $last_sync);
+
         $emails = imap_search($inbox, 'UNSEEN');
+        //SINCE "' . $last_sync_date . '"');
+        $saved_time = time();
 
         if ($emails) {
-          $output = '';
           rsort($emails);
-
           foreach ($emails as $email_number) {
-            $message = array();
-
-            //general information
             $message = collatool_email_reader_get_message_general_info($inbox, $email_number);
 
-            //body
-            $message['body'] = collatool_email_reader_get_message_body($inbox,$email_number);
-//            print_r($message['body']);
-//            $output .= '<div class="subject">Subject: ' . $subject. '</div> ';
-//            $output .= '<div class="from">From: ' .  $from  . '</div>';
-//            $output .= '<div class="date">Date: ' . $date . '</div>';
-//            $output .= '<div class="date">UID: ' . $uid . '</div>';
-//            $output .= '<div class="body">Body: ' . $message_body . '</div></br></br>';
+            //if (strtotime($message['date']) < $last_sync)//skipping emails which were already read
+            //  continue;
 
+            $message['body'] = collatool_email_reader_get_message_body($inbox, $email_number);
             collatool_rabbitmq_message_send($message, 'email');
-            //TODO: add to the list of read emails
+            //preg_match_all('/(^\w.+:\n)?(^>.*(\n|$))+/mi',$message['body'],$meta);
+            //$message['meta'] = collatool_rabbitmq_multi_implode($meta);
+            //$message['meta'] = preg_replace('/>*/','',$message['meta']);
+            //$message['body'] = preg_replace('/(^\w.+:\n)?(^>.*(\n|$))+/mi', '', $message['body']);
+            print_r($message);
           }
+        }
+        imap_close($inbox);
 
-          echo $output;
+        $num_updated = db_update('collatool_email')
+          ->fields(array('last_sync' => $saved_time))
+          ->condition('uid', $user->uid, '=')
+          ->execute();
+
+        if (!$num_updated) { //first time, then create
+          db_insert('collatool_email')
+            ->fields(array(
+              'uid' => $user->uid,
+              'email' => $email,
+              'last_sync' => $saved_time,
+            ))
+            ->execute();
         }
 
-        imap_close($inbox);
       } catch (Exception $e) {
         throw new Exception('Something really gone wrong', 0, $e);
       }
     }
-    echo "<br/><br/><hr><br/><br/>";
   }
 
   print_r('<br/><br/ >done');

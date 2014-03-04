@@ -1,19 +1,6 @@
 <?php
 include_once 'inc/collatool_rabbitmq.functions.inc';
 
-function collatool_rabbitmq_menu() {
-  $items = array();
-
-  $items['rabbit/send'] = array(
-    'title' => 'Receiving the messages',
-    'page callback' => 'collatool_rabbitmq_send_callback',
-    'type' => MENU_NORMAL_ITEM,
-    'access arguments' => array('administer site configuration'),
-  );
-
-  return $items;
-}
-
 function collatool_rabbitmq_message_send($message, $rounting_key){
   $broker = message_broker_get();
   $message_body = json_encode($message);
@@ -31,24 +18,24 @@ function collatool_rabbitmq_message_broker_consumers($self_name) {
     'callback' => function ($message, \Closure $ack) {
         $message = json_decode($message->body);
 
-        //$message = collatool_rabbitmq_to_canonical("email", $message);
+        $message = collatool_rabbitmq_to_canonical("email", $message);
         if (function_exists('drush_print')) {
-          drush_print('Received email with from: ' . $message->sender . ' on ' . $message->date);
+          drush_print('Received email with from: ' . $message->sender);
+          drush_print('to: ' . $message->receiver);
+          drush_print('on: ' . $message->date);
           drush_print('Message: ' . $message->body);
+          drush_print("=============================================");
         }
-        else {
+        else
           drupal_set_message(t('Received email with data: @data', array('@data' => $message->data)));
-        }
 
         $ack();
       },
     'invalidMessageHandler' => function ($message) {
-        if (function_exists('drush_print')) {
+        if (function_exists('drush_print'))
           drush_print('Invalid message handler was executed.');
-        }
-        else {
+        else
           drupal_set_message(t('Invalid message handler was executed.'), 'warning');
-        }
       }
   );
   $consumers['msg_im_consumer'] = array(
@@ -58,30 +45,25 @@ function collatool_rabbitmq_message_broker_consumers($self_name) {
 
         $message = collatool_rabbitmq_to_canonical("skype", $message);
         if (function_exists('drush_print')) {
-          drush_print('Received IM with from: ' . $message->sender . ' on ' . $message->date . ' data: ' . $message->body);
+          drush_print('Received IM with from: ' . $message->sender);
+          drush_print('to: ' . $message->receiver);
+          drush_print('on: ' . $message->date);
+          drush_print('Message: ' . $message->body);
+          drush_print("=============================================");
         }
-        else {
+        else
           drupal_set_message(t('Received IM with data: @data', array('@data' => $message->data)));
-        }
 
         $ack();
       },
     'invalidMessageHandler' => function ($message) {
-        if (function_exists('drush_print')) {
+        if (function_exists('drush_print'))
           drush_print('Invalid message handler was executed.');
-        }
-        else {
+        else
           drupal_set_message(t('Invalid message handler was executed.'), 'warning');
-        }
       }
   );
 
 
   return $consumers;
-}
-
-function collatool_rabbitmq_send_callback() {
-  $broker = message_broker_get();
-  $message_body = json_encode(array('data' => 'This is a test email'));
-  $broker->sendMessage($message_body, 'msg_exchange', array('routing_key' => 'im'));
 }

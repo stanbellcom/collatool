@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6b9f77b-5142-4b38-808a-d75671696ebe" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/application_form_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/application_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/chart_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/cog.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/hourglass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/hourglass_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/information.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/lock_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/message-16-error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/message-16-help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/message-16-info.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/message-16-ok.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/message-16-warning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/icons/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/CronRule.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/INSTALL.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/README.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/about.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/launcher/background_process_legacy.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/launcher/background_process_legacy.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/logger/cache.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/logger/cache.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/scheduler/crontab.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/scheduler/crontab.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/logger/database.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/logger/database.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/general.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/general.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/hooks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/jquery.tableSort.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/jquery.tablesorter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/jquery.tablesorter.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/launchers-background-process.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/launchers-create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/launchers-serial.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/launchers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/loggers-cache.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/loggers-create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/loggers-database.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/loggers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/includes/nicejson.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/not a tty" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/templates/page-admin-settings-cron-log.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/plugins.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/poorman.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/poorman.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/progress/progress.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/progress/progress.install" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/progress/progress.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/queue.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/settings/queue.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/rules.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/tests/rules.test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/schedulers-create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/schedulers-crontab.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/schedulers-simple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/schedulers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/launcher/serial.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/launcher/serial.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/settings-create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/settings-general.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/settings-queue.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/settings.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/scheduler/simple.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ultimate_cron/scheduler/simple.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/css/ultimate_cron.admin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.admin.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.api.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.background_process_legacy.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.cache-signal.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.drush.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/help/ultimate_cron.help.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.install" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.job.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/ultimate_cron.job.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/ultimate_cron.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.lock.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.memcache-lock.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.memcache-progress.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.nagios.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/js/ultimate_cron.nodejs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.plugin.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.poorman.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.progress.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/ultimate_cron.signal.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ctools/export_ui/ultimate_cron_job_ctools_export_ui.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/plugins/ctools/export_ui/ultimate_cron_job_ctools_export_ui.inc" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/CHANGELOG.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.admin.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.common.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.edit.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.list.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/basic_webmail.view.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/images/mini-doc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/images/mini-edit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/images/mini-mail-open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/images/mini-mail.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.queue.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/CHANGELOG.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.api.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.pages.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.plugins.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.rules.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds.tokens.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_import/feeds_import.features.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_import/feeds_import.feeds_importer_default.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_import/feeds_import.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_import/feeds_import.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_import/feeds_import.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.features.field.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.features.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.feeds_importer_default.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_news/feeds_news.views_default.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.admin.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/feeds_ui/feeds_ui.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/includes/FeedsConfigurable.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/includes/FeedsImporter.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/includes/FeedsSource.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/libraries/ParserCSV.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/libraries/PuSHSubscriber.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/libraries/common_syndication_parser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/libraries/http_request.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/libraries/opml_parser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/date.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/file.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/link.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/number.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/path.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/profile.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/taxonomy.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/mappers/text.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsCSVParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsFetcher.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsFileFetcher.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsHTTPFetcher.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsNodeProcessor.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsOPMLParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsPlugin.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsProcessor.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsSimplePieParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsSitemapParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsSyndicationParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsTermProcessor.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/plugins/FeedsUserProcessor.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/common_syndication_parser.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/assets/attersee.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/assets/foosball.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/assets/hstreet.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/assets/la fayette.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/assets/tubing.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/batch/nodes1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/batch/nodes2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/batch/nodes3.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/batch/nodes4.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/batch/nodes5.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/content.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/developmentseed.rss2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/developmentseed_changes.rss2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/drupalplanet.rss2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/earthquake-georss.atom" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/feed_without_guid.rss2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/feeds-tests-files.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/feeds-tests-flickr.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/googlenewstz.rss2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/magento.rss1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/many_nodes.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/multi-date.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes.csv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes.tsv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_changes.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_comma.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_pipe.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_plus.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_semicolon.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/nodes_tab.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/path_alias.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/profile.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/sitemap-example.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds/users.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_date_time.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_fetcher_file.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_config.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_date.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_date_multiple.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_field.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_file.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_link.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_path.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_profile.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_mapper_taxonomy.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_parser_sitemap.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_parser_syndication.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_processor_node.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_processor_term.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_processor_user.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_scheduler.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_tests.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/feeds_tests.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/tests/parser_csv.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds.views.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds.views_default.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_argument_importer_id.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_field_importer_name.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_field_log_message.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_field_severity.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_field_source.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/views/feeds_views_handler_filter_severity.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/INSTALL.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.api.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.coder_review_ignores.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/mailhandler.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.features.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.feeds_importer_default.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.mailhandler_mailbox.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_default/mailhandler_default.strongarm.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_extended/mailhandler_extended.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_extended/mailhandler_extended.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_extended/plugins/mailhandler/commands/MailhandlerCommandsExtendedHeaders.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_extended/plugins/mailhandler/commands/MailhandlerCommandsExtendedHeaders.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_multiple_email/mailhandler_multiple_email.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_multiple_email/mailhandler_multiple_email.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_multiple_email/plugins/mailhandler/authenticate/MailhandlerMultipleEmailAuthenticate.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_multiple_email/plugins/mailhandler/authenticate/MailhandlerMultipleEmailAuthenticate.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/mailhandler_php_imap.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/mailhandler_php_imap.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/mailhandler_php_imap.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/plugins/mailhandler/retrieve/MailhandlerPhpImapRetrieve.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/plugins/mailhandler/retrieve/MailhandlerPhpImapRetrieve.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_tokenauth/mailhandler_tokenauth.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_tokenauth/mailhandler_tokenauth.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_tokenauth/plugins/mailhandler/authenticate/MailhandlerAuthenticateTokenauth.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_tokenauth/plugins/mailhandler/authenticate/MailhandlerAuthenticateTokenauth.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/ctools/export_ui/mailhandler.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/ctools/export_ui/mailhandler_mailbox_ui.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/feeds/plugins/MailhandlerFetcher.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/feeds/plugins/MailhandlerFetcher.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/feeds/plugins/MailhandlerParser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/feeds/plugins/MailhandlerParser.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/authenticate/MailhandlerAuthenticate.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/authenticate/MailhandlerAuthenticate.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/authenticate/MailhandlerAuthenticateDefault.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/authenticate/MailhandlerAuthenticateDefault.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommands.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommands.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsDefault.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsDefault.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsFiles.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsFiles.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsHeaders.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/commands/MailhandlerCommandsHeaders.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFilters.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFilters.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFiltersComments.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFiltersComments.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFiltersNodes.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/filters/MailhandlerFiltersNodes.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/retrieve/MailhandlerRetrieve.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/retrieve/MailhandlerRetrieve.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/retrieve/MailhandlerRetrieveDummy.class.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/plugins/mailhandler/retrieve/MailhandlerRetrieveDummy.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/druplicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mailhandler.test" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/attachment1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/capital_commands" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/empty" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/firstline_url" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/inline" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/mime" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/singlepart" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/test1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/test2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/test3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/test4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/mailhandler/tests/mbox/test5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/INSTALL" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.drush.inc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.queue.inc" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/sites/all/modules/basic_webmail/LICENSE.txt" afterPath="$PROJECT_DIR$/sites/all/modules/progress/LICENSE.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/sites/all/modules/feeds/LICENSE.txt" afterPath="$PROJECT_DIR$/sites/all/modules/ultimate_cron/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/inc/collatool_email_reader.functions.inc" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/inc/collatool_email_reader.functions.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.module" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/inc/collatool_rabbitmq.functions.inc" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/inc/collatool_rabbitmq.functions.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.module" afterPath="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/collatool_theme/templates/comment.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/collatool_theme/templates/comment.tpl.php" />
+    </list>
+    <ignored path="collatool.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DrupalConfiguration" enabled="true" version="7">
+    <drupalPath>$PROJECT_DIR$</drupalPath>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="collatool" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="collatool_rabbitmq.module" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="11" selection-start="828" selection-end="828" vertical-scroll-proportion="0.39027148" vertical-offset="0" max-vertical-offset="1110">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush dis collatool_email_reader --yes " />
+      <command text="drush pm-uninstall collatool_email_reader --yes" />
+      <command text="drush en collatool_email_reader --yes" />
+      <command text="drush consume-amqp-messages" />
+      <command text="drush dl ultimate_cron" />
+      <command text="drush en ultimate_cron --yes" />
+      <command text="drush consume-amqp-messages" />
+      <command text="drush dl backrgound_process" />
+      <command text="drush dl background_process" />
+      <command text="drush en background_process" />
+    </commandsHistory>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/sites/all/modules/stomp/stomp.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.queue.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/rabbitmq/rabbitmq.drush.inc" />
+        <option value="$PROJECT_DIR$/sites/default/settings.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/message_broker/README.txt" />
+        <option value="$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/amqp_message_broker.inc" />
+        <option value="$PROJECT_DIR$/sites/default/amqp_config.json" />
+        <option value="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/mailhandler_php_imap.install" />
+        <option value="$PROJECT_DIR$/sites/all/modules/mailhandler/modules/mailhandler_php_imap/plugins/mailhandler/retrieve/MailhandlerPhpImapRetrieve.class.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email.info" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.functions.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/int/collatool_email_reader.functions.int.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.install" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_email_reader/inc/collatool_email_reader.functions.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/inc/collatool_rabbitmq.functions.inc" />
+        <option value="$PROJECT_DIR$/sites/all/themes/collatool_theme/templates/comment.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.info" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpTemplates">
+    <option name="NEW_PHP_FILE_LAST_EXTENSION" value="inc" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/includes" />
+      <path value="$PROJECT_DIR$/modules" />
+      <path value="$PROJECT_DIR$/sites/all/modules" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="62" />
+    <option name="y" value="22" />
+    <option name="width" value="1371" />
+    <option name="height" value="1028" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool_rabbitmq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collatool_message_handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sites/all/modules/collatool_message_handler" />
+      <recent name="$PROJECT_DIR$/sites/all/modules/collatool_email_reader" />
+      <recent name="$PROJECT_DIR$/sites/default" />
+      <recent name="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sites/all/modules" />
+      <recent name="$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/inc" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6b9f77b-5142-4b38-808a-d75671696ebe" name="Default" comment="" />
+      <created>1391174522873</created>
+      <updated>1391174522873</updated>
+    </task>
+    <task id="LOCAL-00001" summary="commented out printing message&#10;">
+      <created>1392285841262</created>
+      <updated>1392285841262</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="62" y="22" width="1371" height="1028" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22329059" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294686" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24873096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31527466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294686" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5608974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="commented out printing message&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented out printing message&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_dummy/dummy_message_broker.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="5" selection-start="4194" selection-end="4194" vertical-scroll-proportion="0.64378697" vertical-offset="1571" max-vertical-offset="3795" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_dummy/message_broker_dummy.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="26" selection-start="73" selection-end="74" vertical-scroll-proportion="-0.6" vertical-offset="15" max-vertical-offset="1965" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/drush_consumer_logger.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="26" selection-start="348" selection-end="348" vertical-scroll-proportion="0.46793762" vertical-offset="0" max-vertical-offset="615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_example/example_config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="22" selection-start="161" selection-end="161" vertical-scroll-proportion="0.17617449" vertical-offset="15" max-vertical-offset="720" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_example/message_broker_example.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="17" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2190" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/default/amqp_config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="33" selection-start="709" selection-end="709" vertical-scroll-proportion="-17.5" vertical-offset="0" max-vertical-offset="720" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/imap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1452" column="9" selection-start="50786" selection-end="50786" vertical-scroll-proportion="-6.8617363" vertical-offset="26048" max-vertical-offset="26670" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/simpletest/drupal_web_test_case.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3456" column="13" selection-start="122000" selection-end="122000" vertical-scroll-proportion="0.16134752" vertical-offset="51614" max-vertical-offset="55545" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/simpletest/simpletest.test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="701" column="7" selection-start="26129" selection-end="26129" vertical-scroll-proportion="-8.166667" vertical-offset="10274" max-vertical-offset="11235" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/message_broker_interface.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="18" selection-start="461" selection-end="461" vertical-scroll-proportion="0.51194537" vertical-offset="0" max-vertical-offset="586" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="320" column="34" selection-start="11963" selection-end="11963" vertical-scroll-proportion="-5.4583335" vertical-offset="4669" max-vertical-offset="9660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="908" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/message_broker.api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="3" selection-start="522" selection-end="522" vertical-scroll-proportion="0.53797466" vertical-offset="15" max-vertical-offset="1470" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="530" selection-end="539" vertical-scroll-proportion="0.46421662" vertical-offset="0" max-vertical-offset="517" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/amqp_message_broker.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="284" column="23" selection-start="7970" selection-end="7970" vertical-scroll-proportion="0.019417476" vertical-offset="4244" max-vertical-offset="5430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/consumer_logger_interface.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="26" selection-start="261" selection-end="261" vertical-scroll-proportion="0.1911935" vertical-offset="0" max-vertical-offset="863" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/message_broker_amqp.drush.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="14" selection-start="920" selection-end="920" vertical-scroll-proportion="0.24150485" vertical-offset="221" max-vertical-offset="1800" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/message_broker_amqp.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="8" selection-start="512" selection-end="512" vertical-scroll-proportion="0.27057496" vertical-offset="0" max-vertical-offset="887" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/message_broker_amqp.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="6" selection-start="2609" selection-end="2609" vertical-scroll-proportion="0.64580876" vertical-offset="623" max-vertical-offset="1470" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/modules/message_broker_amqp/message_broker_amqp.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="259" column="21" selection-start="8745" selection-end="8745" vertical-scroll-proportion="0.6989374" vertical-offset="3293" max-vertical-offset="4140" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_email_reader/inc/collatool_email_reader.functions.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="6" selection-start="203" selection-end="203" vertical-scroll-proportion="-0.18072289" vertical-offset="195" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/collatool_theme/templates/comment.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="8" selection-start="3608" selection-end="3608" vertical-scroll-proportion="0.69018406" vertical-offset="0" max-vertical-offset="652">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_email_reader/collatool_email_reader.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.3467279" vertical-offset="598" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/inc/collatool_rabbitmq.functions.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="250" selection-end="250" vertical-scroll-proportion="0.16968326" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/message_broker/message_broker.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.22058824" vertical-offset="0" max-vertical-offset="2400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="92" selection-start="125" selection-end="125" vertical-scroll-proportion="0.016519824" vertical-offset="0" max-vertical-offset="908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_message_handler/collatool_message_handler.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.016968327" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/collatool_rabbitmq/collatool_rabbitmq.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="11" selection-start="828" selection-end="828" vertical-scroll-proportion="0.39027148" vertical-offset="0" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
