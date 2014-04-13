@@ -14,6 +14,7 @@ function collatool_rabbitmq_to_canonical($type, $message) {
 }
 
 /* Canonical format of message:
+ * external_id
  * date (in format dd.mm.yyy HH:mm:ii)
  * sender
  * receiver
@@ -22,6 +23,9 @@ function collatool_rabbitmq_to_canonical($type, $message) {
  *
 */
 function collatool_rabbitmq_to_canonical_email($message) {
+  //id
+  $message->external_id = $message->id;
+
   //change date format
   $dateTime = new DateTime($message->date);
   $message->date = $dateTime->format(DATE_FORMAT);
@@ -38,15 +42,24 @@ function collatool_rabbitmq_to_canonical_email($message) {
   //remove quotated text from body
   $message->body = preg_replace('/(^\w.+:\n)?(^>.*(\n|$))+/mi', '', $message->body);
 
+  //setting source
+  $message->source = 'email';
+
   return $message;
 }
 
 function collatool_rabbitmq_to_canonical_skype($message) {
+  //id
+  $message->external_id = $message->id;
+
   //change date format
   $message->date = date(DATE_FORMAT, $message->date);
 
   //strip emotion tags
   $message->body = preg_replace('/<\/?ss(.|\s)*?>/', '', $message->body);
+
+  //setting source
+  $message->source = 'skype';
 
   return $message;
 }

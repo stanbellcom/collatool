@@ -1,1 +1,200 @@
 <?php
+
+function collatool_message_handler_menu() {
+  $items = array();
+
+  $items['classifier/test'] = array(
+    'title' => 'Test the classifier',
+    'page callback' => 'collatool_message_handler_classify',
+    'type' => MENU_NORMAL_ITEM,
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
+
+function collatool_message_handler_classify($message) {
+  //extract the commands, if any
+  preg_match_all('/\s?set (task|project) \w*( \w*)? as \w*( \w*)*\./i', $message->body, $commands);
+  $message->commands['set'] = $commands[0];
+
+  preg_match_all('/\s?create task ((\, )?with \w*( \w*)? as \w*( \w*)*)+\./i', $message->body, $commands);
+  $message->commands['create'] = $commands[0];
+
+  //find corresponding entities
+  $body_stripped = preg_replace('/\s?set (task|project) \w*( \w*)? as \w*( \w*)*\./i', '', $message->body);
+  $body_stripped = preg_replace('/\s?create task ((\, )?with \w*( \w*)? as \w*( \w*)*)+\./i', '', $body_stripped);
+  $search_param = $body_stripped . ' ' . $message->meta;
+
+  $project = _collatool_message_handler_find_project($search_param);
+  $task = _collatool_message_handler_find_task($search_param);
+  $task_project = _collatool_message_handler_get_project_by_task($task);
+
+  //executing create commands
+  if (!empty($project->nid)){
+    _collatool_message_handler_execute_create_commands($project, $message->commands['create']);
+  }
+
+  //Perfect match: found project and task project are the same
+  if (!empty($task_project->nid) && $task_project->nid === $project->nid) {
+    _collatool_message_handler_append_comment($task, $message);
+    _collatool_message_handler_execute_set_commands($project, $task, $message->commands['set']);
+  } elseif (!empty($task_project->nid)) {
+    print_r('partial match');
+  } else {
+    print_r('no match');
+  }
+}
+
+function _collatool_message_handler_find_project($search_params) {
+  $projects = apachesolr_search_search_results($search_params, array('fq' => array('bundle:project')));
+  if (!empty($projects)) {
+    $project_entity = array_shift($projects);
+    $project = node_load($project_entity['node']->entity_id);
+    return $project;
+  }
+}
+
+function _collatool_message_handler_find_task($search_params) {
+  $tasks = apachesolr_search_search_results($search_params, array('fq' => array('bundle:task')));
+  if (!empty($tasks)) {
+    $task_entity = array_shift($tasks);
+    $task = node_load($task_entity['node']->entity_id);
+    return $task;
+  }
+}
+
+function _collatool_message_handler_find_comment($search_params) {
+  $comments = apachesolr_search_search_results($search_params, array('fq' => array('bundle:comment_node_task')));
+  if (!empty($comments)) {
+    //TODO: edit?
+    return array_shift($comments);
+  }
+}
+
+function _collatool_message_handler_get_project_by_task($task) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('type', array('project'))
+    ->fieldCondition('field_pr_tasks', 'target_id', $task->nid, '=');
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $nid = reset($nids);
+    return node_load($nid);
+  }
+}
+
+function _collatool_message_handler_get_task_by_comment($comment) {
+
+}
+
+function _collatool_message_handler_append_comment($node, $message) {
+  $comment = new stdClass();
+  $comment->nid = $node->nid;
+  $comment->cid = 0;
+  $comment->pid = 0;
+  $comment->name = $message->sender;
+  $comment->created = strtotime($message->date);
+  $comment->is_anonymous = 1;
+  $comment->status = COMMENT_PUBLISHED;
+  $comment->language = LANGUAGE_NONE;
+  $comment->comment_body[$comment->language][0]['value'] = $message->body;
+  $comment->comment_body[$comment->language][0]['format'] = 'filtered_html';
+  $comment->field_task_comment_source[$comment->language][0]['value'] = $message->source;
+  $comment->field_task_comment_ext_mes_id[$comment->language][0]['value'] = $message->external_id;
+  comment_submit($comment);
+  comment_save($comment);
+}
+
+function _collatool_message_handler_execute_set_commands($project, $task, $commands) {
+  foreach ($commands as $command) {
+    //getting context, if any
+    if (stripos($command, 'task ')) {
+      $context = $task;
+      $command = str_replace('task ', '', $command);
+    } else {
+      $context = $project;
+      $command = str_replace('project ', '', $command);
+    }
+
+    //getting field name
+    $starInd = 4;
+    $length = stripos($command, ' as ') - $starInd;
+    $field = substr($command, $starInd, $length);
+
+    //getting field value
+    $starInd = stripos($command, ' as ') + 3;
+    $length = stripos($command, '.') - $starInd;
+    $value = substr($command, $starInd, $length);
+
+    _collatool_message_handler_execute_command(trim($field), trim($value), $context);
+  }
+}
+
+function _collatool_message_handler_execute_create_commands($project, $commands){
+  foreach ($commands as $command){
+    if (stripos($command, 'task ')) {
+      $task = new stdClass();
+      $task->type = 'task';
+      node_object_prepare($task);
+      $task->language = LANGUAGE_NONE;
+      $task->status = 1;
+      node_submit($task);
+
+      $command = str_replace('task ', '', $command);
+    }
+
+    preg_match_all('/with \w*( \w*)? as \w*( \w*)*/i', $command, $command_parts);
+    print_r($command_parts);
+    foreach ($command_parts[0] as $part){
+      //getting field name
+      $starInd = 5;
+      $length = stripos($part, ' as ') - $starInd;
+      $field = substr($part, $starInd, $length);
+
+      //getting field value
+      $starInd = stripos($part, ' as ') + 3;
+      $value = substr($part, $starInd);
+
+      $task = _collatool_message_handler_execute_command(trim($field), trim($value), $task);
+    }
+
+    if (!empty($task->nid)){
+      $project->field_pr_tasks['und'][]['target_id'] = $task->nid;
+      node_save($project);
+    }
+  }
+}
+
+function _collatool_message_handler_execute_command($field, $value, $context) {
+  $drupal_field = _collatool_message_handler_find_drupal_field($field, $context);
+  if ($drupal_field) {
+    $new_field = $context->$drupal_field['name'];
+    if ($drupal_field['type'] == 'simple')
+      $new_field = $value;
+    elseif ($drupal_field['type'] == 'date')
+      $new_field['und'][0]['value'] = date('Y-m-d H:i:s', strtotime($value));
+    else
+      $new_field['und'][0]['value'] = $value;
+
+    $context->$drupal_field['name'] = $new_field;
+    node_save($context);
+    return $context;
+  }
+}
+
+function _collatool_message_handler_find_drupal_field($field, $context) {
+  $ini_array = parse_ini_file("mapping/{$context->type}_fields_mapping.ini", TRUE);
+  //is simple field?
+  if (isset($ini_array['simple'][$field]))
+    return array('type' => 'simple', 'name' => $ini_array['simple'][$field]);
+
+  //is date field?
+  if (isset($ini_array['date'][$field]))
+    return array('type' => 'date', 'name' => $ini_array['date'][$field]);
+
+  //is text field?
+  if (isset($ini_array['text'][$field]))
+    return array('type' => 'text', 'name' => $ini_array['text'][$field]);
+}

@@ -47,8 +47,7 @@ function collatool_email_reader_cron() {
           ->fetchField();
         $last_sync_date = date('d-M-Y', $last_sync);
 
-        $emails = imap_search($inbox, 'UNSEEN');
-        //SINCE "' . $last_sync_date . '"');
+        $emails = imap_search($inbox, 'SINCE "' . $last_sync_date . '"');
         $saved_time = time();
 
         if ($emails) {
@@ -56,8 +55,8 @@ function collatool_email_reader_cron() {
           foreach ($emails as $email_number) {
             $message = collatool_email_reader_get_message_general_info($inbox, $email_number);
 
-            //if (strtotime($message['date']) < $last_sync)//skipping emails which were already read
-            //  continue;
+            if (strtotime($message['date']) < $last_sync)//skipping emails which were already read
+              continue;
 
             $message['body'] = collatool_email_reader_get_message_body($inbox, $email_number);
             collatool_rabbitmq_message_send($message, 'email');
