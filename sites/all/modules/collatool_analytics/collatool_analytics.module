@@ -10,7 +10,7 @@ function collatool_analytics_menu() {
     'description' => 'Sources information',
     'page callback' => 'collatool_analytics_sources',
     'page arguments' => array(1),
-    'access callback' => 'collatool_analytics_sources_access',
+    'access callback' => 'collatool_analytics_access',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
@@ -20,14 +20,14 @@ function collatool_analytics_menu() {
     'description' => 'Sources information',
     'page callback' => 'collatool_analytics_sources',
     'access callback' => TRUE,
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
   );
 
   $items['node/%node/analytics-words-count'] = array(
     'title' => 'Word count',
     'page callback' => 'collatool_analytics_word_count',
     'page arguments' => array(1),
-    'access callback' => 'collatool_analytics_word_count_access',
+    'access callback' => 'collatool_analytics_access',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
@@ -36,14 +36,14 @@ function collatool_analytics_menu() {
     'title' => 'Word count',
     'page callback' => 'collatool_analytics_word_count',
     'access callback' => TRUE,
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
   );
 
   $items['node/%node/analytics-user-activity'] = array(
     'title' => 'User activity',
     'page callback' => 'collatool_analytics_user_activity',
     'page arguments' => array(1),
-    'access callback' => 'collatool_analytics_user_activity_access',
+    'access callback' => 'collatool_analytics_access',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
@@ -53,14 +53,14 @@ function collatool_analytics_menu() {
     'page callback' => 'collatool_analytics_user_activity',
     'page arguments' => array(1),
     'access callback' => TRUE,
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
   );
 
   $items['node/%node/analytics-activity'] = array(
     'title' => 'Activity',
     'page callback' => 'collatool_analytics_activity',
     'page arguments' => array(1),
-    'access callback' => 'collatool_analytics_activity_access',
+    'access callback' => 'collatool_analytics_access',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
@@ -70,14 +70,14 @@ function collatool_analytics_menu() {
     'page callback' => 'collatool_analytics_activity',
     'page arguments' => array(1),
     'access callback' => TRUE,
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
   );
 
   $items['node/%node/analytics-daytime-activity'] = array(
     'title' => 'Daytime activity',
     'page callback' => 'collatool_analytics_daytime_activity',
     'page arguments' => array(1),
-    'access callback' => 'collatool_analytics_daytime_activity_access',
+    'access callback' => 'collatool_analytics_access',
     'access arguments' => array(1),
     'type' => MENU_LOCAL_TASK,
   );
@@ -87,50 +87,120 @@ function collatool_analytics_menu() {
     'page callback' => 'collatool_analytics_daytime_activity',
     'page arguments' => array(1),
     'access callback' => TRUE,
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
   );
 
   return $items;
 }
 
-//PUNCH CARD START///
-function collatool_analytics_daytime_activity_access($node){
+function collatool_analytics_access($node) {
   return $node->type == 'project' || $node->type == 'task';
 }
 
-function collatool_analytics_daytime_activity($node = null){
-  $values = array();
+//DAYTIME ACTIVITY START///
+function collatool_analytics_daytime_activity($node = NULL) {
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $starttime = $mtime;
 
-  if(!$node){
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'project')
-      ->execute();
+  $cached_data = db_select('collatool_analytics_cache', 'c')
+    ->fields('c', array('cached_data'))
+    ->condition('nid', ($node) ? $node->nid : 0, '=')
+    ->condition('cached_data_type', 'daytime_activity', '=')
+    ->execute()
+    ->fetchField();
 
-    if (!empty($result['node'])) {
-      foreach (array_keys($result['node']) as $project_nid){
-        $project = node_load($project_nid);
-        foreach ($project->field_pr_tasks['und'] as $task) {
-          collatool_analytics_daytime_activity_calc_task($task['target_id'], $values);
-        }
-      }
+  if (!$cached_data) {
+    print_r('cached now');
+    if (!$node) {
+      $values = collatool_analytics_cache_all_daytime_activity();
+    } elseif ($node->type == 'project') {
+      $values = collatool_analytics_cache_project_daytime_activity($node);
+    } elseif ($node->type == 'task') {
+      $values = collatool_analytics_cache_task_daytime_activity($node);
     }
-  } elseif ($node->type == 'project') {
-    foreach ($node->field_pr_tasks['und'] as $task) {
-      collatool_analytics_daytime_activity_calc_task($task['target_id'], $values);
-    }
-  } elseif ($node->type == 'task') {
-    collatool_analytics_daytime_activity_calc_task($node->nid, $values);
+  } else {
+    print_r('getting cached version');
+    $values = json_decode($cached_data, TRUE);
   }
 
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $endtime = $mtime;
+  $totaltime = ($endtime - $starttime);
+  echo "<br/>This page was created in " . $totaltime . " seconds";
 
-  foreach($values as &$value){
+  foreach ($values as &$value) {
     ksort($value);
   }
   return collatool_analytics_graph_comments_daytime_activity($values);
 }
 
-function collatool_analytics_daytime_activity_calc_task($task_nid, &$values){
+function collatool_analytics_cache_all_daytime_activity() {
+  $values = array();
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'project')
+    ->execute();
+
+  if (!empty($result['node'])) {
+    foreach (array_keys($result['node']) as $project_nid) {
+      $project = node_load($project_nid);
+      foreach ($project->field_pr_tasks['und'] as $task) {
+        collatool_analytics_calc_task_daytime_activity($task['target_id'], $values);
+      }
+    }
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => 0,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'daytime_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_project_daytime_activity($project) {
+  $values = array();
+  foreach ($project->field_pr_tasks['und'] as $task) {
+    collatool_analytics_calc_task_daytime_activity($task['target_id'], $values);
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $project->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'daytime_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_task_daytime_activity($task) {
+  $values = collatool_analytics_calc_task_daytime_activity($task->nid);
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $task->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'daytime_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_calc_task_daytime_activity($task_nid, &$values = array()) {
   $result = db_select('comment', 'c')
     ->fields('c')
     ->condition('nid', $task_nid, '=')
@@ -142,94 +212,236 @@ function collatool_analytics_daytime_activity_calc_task($task_nid, &$values){
     $hour_of_date = date('H', $comment->created);
     $values[$day][$hour_of_date]++;
   }
+
+  return $values;
 }
 
-//PUNCH CARD END///
+//DAYTIME ACTIVITY END///
 
 //ACTIVITY START///
-function collatool_analytics_activity_access($node){
- return $node->type == 'project' || $node->type == 'task';
-}
+function collatool_analytics_activity($node = NULL) {
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $starttime = $mtime;
 
-function collatool_analytics_activity($node = null){
-  $values = array();
+  $cached_data = db_select('collatool_analytics_cache', 'c')
+    ->fields('c', array('cached_data'))
+    ->condition('nid', ($node) ? $node->nid : 0, '=')
+    ->condition('cached_data_type', 'activity', '=')
+    ->execute()
+    ->fetchField();
 
-  if(!$node){
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'project')
-      ->execute();
-
-    if (!empty($result['node'])) {
-      foreach (array_keys($result['node']) as $project_nid){
-        $project = node_load($project_nid);
-        foreach ($project->field_pr_tasks['und'] as $task) {
-          collatool_analytics_sources_calc_task_activity($task['target_id'], $values[$project->title]);
-        }
-      }
+  if (!$cached_data) {
+    print_r('cached now');
+    if (!$node) {
+      $values = collatool_analytics_cache_all_activity();
+    } elseif ($node->type == 'project') {
+      $values = collatool_analytics_cache_project_activity($node);
+    } elseif ($node->type == 'task') {
+      $values = collatool_analytics_cache_task_activity($node);
     }
-  } elseif ($node->type == 'project') {
-    foreach ($node->field_pr_tasks['und'] as $task) {
-      $task_node = node_load($task['target_id']);
-      collatool_analytics_sources_calc_task_activity($task['target_id'], $values[$task_node->title]);
-    }
-  } elseif ($node->type == 'task') {
-    collatool_analytics_sources_calc_task_activity($node->nid, $values[$node->title]);
+  } else {
+    print_r('getting cached version');
+    $values = json_decode($cached_data, TRUE);
   }
+
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $endtime = $mtime;
+  $totaltime = ($endtime - $starttime);
+  echo "<br/>This page was created in " . $totaltime . " seconds";
+
+  foreach ($values as &$value) {
+    ksort($value);
+  }
+
   return collatool_analytics_graph_comments_activity($values);
 }
 
-function collatool_analytics_sources_calc_task_activity($task_nid, &$values){
+function collatool_analytics_cache_all_activity() {
+  $values = array();
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'project')
+    ->execute();
+
+  if (!empty($result['node'])) {
+    foreach (array_keys($result['node']) as $project_nid) {
+      $project = node_load($project_nid);
+      foreach ($project->field_pr_tasks['und'] as $task) {
+        collatool_analytics_sources_calc_task_activity($task['target_id'], $values[$project->title]);
+      }
+    }
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => 0,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_project_activity($project) {
+  $values = array();
+  foreach ($project->field_pr_tasks['und'] as $task) {
+    $task_node = node_load($task['target_id']);
+    collatool_analytics_sources_calc_task_activity($task['target_id'], $values[$task_node->title]);
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $project->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_task_activity($task) {
+  $values[$task->title] = collatool_analytics_sources_calc_task_activity($task->nid);
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $task->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_sources_calc_task_activity($task_nid, &$values = array()) {
   $result = db_select('comment', 'c')
     ->fields('c')
     ->condition('nid', $task_nid, '=')
     ->execute();
 
-  $values = array();
   while ($record = $result->fetchAssoc()) {
     $comment = comment_load($record['cid']);
     $timestamp = strtotime(date("Y-m-d 00:00:00", $comment->created));
-    $timestamp*=1000; //converting to milliseconds
+    $timestamp *= 1000; //converting to milliseconds
     $values[$timestamp]++;
   }
+
+  return $values;
 }
 
 //ACTIVITY END///
 
 //USER ACTIVITY START///
-function collatool_analytics_user_activity_access($node){
-  return $node->type == 'project' || $node->type == 'task';
-}
+function collatool_analytics_user_activity($node = NULL) {
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $starttime = $mtime;
 
-function collatool_analytics_user_activity($node = null) {
-  $values = array();
+  $cached_data = db_select('collatool_analytics_cache', 'c')
+    ->fields('c', array('cached_data'))
+    ->condition('nid', ($node) ? $node->nid : 0, '=')
+    ->condition('cached_data_type', 'user_activity', '=')
+    ->execute()
+    ->fetchField();
 
-  if(!$node){
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'project')
-      ->execute();
-
-    if (!empty($result['node'])) {
-      foreach (array_keys($result['node']) as $project_nid){
-        $project = node_load($project_nid);
-        foreach ($project->field_pr_tasks['und'] as $task) {
-          collatool_analytics_calc_task_user_activity($task['target_id'], $values);
-        }
-      }
+  if (!$cached_data) {
+    print_r('cached now');
+    if (!$node) {
+      $values = collatool_analytics_cache_all_user_activity();
+    } elseif ($node->type == 'project') {
+      $values = collatool_analytics_cache_project_user_activity($node);
+    } elseif ($node->type == 'task') {
+      $values = collatool_analytics_cache_task_user_activity($node);
     }
-  } elseif ($node->type == 'project') {
-    foreach ($node->field_pr_tasks['und'] as $task) {
-      collatool_analytics_calc_task_user_activity($task['target_id'], $values);
-    }
-  } elseif ($node->type == 'task') {
-    collatool_analytics_calc_task_user_activity($node->nid, $values);
+  } else {
+    print_r('getting cached version');
+    $values = json_decode($cached_data, TRUE);
   }
+
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $endtime = $mtime;
+  $totaltime = ($endtime - $starttime);
+  echo "<br/>This page was created in " . $totaltime . " seconds";
 
   return collatool_analytics_graph_comments_user_activity($values);
 }
 
-function collatool_analytics_calc_task_user_activity($task_nid, &$values) {
+function collatool_analytics_cache_all_user_activity() {
+  $values = array();
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'project')
+    ->execute();
+
+  if (!empty($result['node'])) {
+    foreach (array_keys($result['node']) as $project_nid) {
+      $project = node_load($project_nid);
+      foreach ($project->field_pr_tasks['und'] as $task) {
+        collatool_analytics_calc_task_user_activity($task['target_id'], $values);
+      }
+    }
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => 0,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'user_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_project_user_activity($project) {
+  $values = array();
+  foreach ($project->field_pr_tasks['und'] as $task) {
+    collatool_analytics_calc_task_user_activity($task['target_id'], $values);
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $project->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'user_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_task_user_activity($task) {
+  $values = collatool_analytics_calc_task_user_activity($task->nid);
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $task->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'user_activity',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_calc_task_user_activity($task_nid, &$values = array()) {
   $result = db_select('comment', 'c')
     ->fields('c')
     ->condition('nid', $task_nid, '=')
@@ -239,47 +451,116 @@ function collatool_analytics_calc_task_user_activity($task_nid, &$values) {
     $comment = comment_load($record['cid']);
     $values[$comment->name]++;
   }
+
+  return $values;
 }
 
 //USER ACTIVITY END///
 
 ///WORD COUNT START///
-function collatool_analytics_word_count_access($node){
-  return $node->type == 'project' || $node->type == 'task';
-}
+function collatool_analytics_word_count($node = NULL) {
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $starttime = $mtime;
 
-function collatool_analytics_word_count($node = null){
-  $words = array();
+  $cached_data = db_select('collatool_analytics_cache', 'c')
+    ->fields('c', array('cached_data'))
+    ->condition('nid', ($node) ? $node->nid : 0, '=')
+    ->condition('cached_data_type', 'word_count', '=')
+    ->execute()
+    ->fetchField();
 
-  if(!$node){
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'project')
-      ->execute();
-
-    if (!empty($result['node'])) {
-      foreach (array_keys($result['node']) as $project_nid){
-        $project = node_load($project_nid);
-        foreach ($project->field_pr_tasks['und'] as $task) {
-          collatool_analytics_sources_calc_task_word_count($task['target_id'], $words);
-        }
-      }
+  if (!$cached_data) {
+    print_r('cached now');
+    if (!$node) {
+      $values = collatool_analytics_cache_all_word_count();
+    } elseif ($node->type == 'project') {
+      $values = collatool_analytics_cache_project_word_count($node);
+    } elseif ($node->type == 'task') {
+      $values = collatool_analytics_cache_task_word_count($node);
     }
-  } elseif ($node->type == 'project') {
-    foreach ($node->field_pr_tasks['und'] as $task) {
-      collatool_analytics_sources_calc_task_word_count($task['target_id'], $words);
-    }
-  } elseif ($node->type == 'task') {
-    collatool_analytics_sources_calc_task_word_count($node->nid, $words);
+  } else {
+    print_r('getting cached version');
+    $values = json_decode($cached_data, TRUE);
   }
 
-  $values = array_count_values($words);
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $endtime = $mtime;
+  $totaltime = ($endtime - $starttime);
+  echo "<br/>This page was created in " . $totaltime . " seconds";
+
+  $values = array_count_values($values);
   arsort($values);
 
   return collatool_analytics_graph_comments_word_count($values);
 }
 
-function collatool_analytics_sources_calc_task_word_count($task_nid, &$words){
+function collatool_analytics_cache_all_word_count() {
+  $values = array();
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'project')
+    ->execute();
+
+  if (!empty($result['node'])) {
+    foreach (array_keys($result['node']) as $project_nid) {
+      $project = node_load($project_nid);
+      foreach ($project->field_pr_tasks['und'] as $task) {
+        collatool_analytics_sources_calc_task_word_count($task['target_id'], $values);
+      }
+    }
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => 0,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'word_count',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_project_word_count($project) {
+  $values = array();
+  foreach ($project->field_pr_tasks['und'] as $task) {
+    collatool_analytics_sources_calc_task_word_count($task['target_id'], $values);
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $project->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'word_count',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_task_word_count($task) {
+  $values = collatool_analytics_sources_calc_task_word_count($task->nid);
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $task->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'word_count',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_sources_calc_task_word_count($task_nid, &$values = array()) {
   $result = db_select('comment', 'c')
     ->fields('c')
     ->condition('nid', $task_nid, '=')
@@ -288,52 +569,114 @@ function collatool_analytics_sources_calc_task_word_count($task_nid, &$words){
   while ($record = $result->fetchAssoc()) {
     $comment = comment_load($record['cid']);
     $body = preg_replace("/[^A-Za-z\s]/", "", $comment->comment_body['und'][0]['value']);
-    $words = array_merge($words, str_word_count($body, 1));
+    $values = array_merge($values, str_word_count($body, 1));
   }
 
-  return $words;
+  return $values;
 }
-
 ///WORD COUNT END///
 
 ///SOURCES START///
-function collatool_analytics_sources_access($node) {
-  return $node->type == 'project' || $node->type == 'task';
-}
+function collatool_analytics_sources($node = NULL) {
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $starttime = $mtime;
 
-function collatool_analytics_sources($node = null) {
-  $values = array(
-    'Skype' => 0,
-    'Email' => 0,
-    'Website' => 0
-  );
+  $cached_data = db_select('collatool_analytics_cache', 'c')
+    ->fields('c', array('cached_data'))
+    ->condition('nid', ($node) ? $node->nid : 0, '=')
+    ->condition('cached_data_type', 'comment_sources', '=')
+    ->execute()
+    ->fetchField();
 
-  if(!$node){
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'project')
-      ->execute();
-
-    if (!empty($result['node'])) {
-      foreach (array_keys($result['node']) as $project_nid){
-        $project = node_load($project_nid);
-        foreach ($project->field_pr_tasks['und'] as $task) {
-          collatool_analytics_sources_calc_task_comment_sources($task['target_id'], $values);
-        }
-      }
+  if (!$cached_data) {
+    print_r('cached now');
+    if (!$node) {
+      $values = collatool_analytics_cache_all_comment_sources();
+    } elseif ($node->type == 'project') {
+      $values = collatool_analytics_cache_project_comment_sources($node);
+    } elseif ($node->type == 'task') {
+      $values = collatool_analytics_cache_task_comment_sources($node);
     }
-  } elseif ($node->type == 'project') {
-    foreach ($node->field_pr_tasks['und'] as $task) {
-      collatool_analytics_sources_calc_task_comment_sources($task['target_id'], $values);
-    }
-  } elseif ($node->type == 'task') {
-    collatool_analytics_sources_calc_task_comment_sources($node->nid, $values);
+  } else {
+    print_r('getting cached version');
+    $values = json_decode($cached_data, TRUE);
   }
+
+  $mtime = microtime();
+  $mtime = explode(" ", $mtime);
+  $mtime = $mtime[1] + $mtime[0];
+  $endtime = $mtime;
+  $totaltime = ($endtime - $starttime);
+  echo "<br/>This page was created in " . $totaltime . " seconds";
 
   return collatool_analytics_graph_comments_sources($values);
 }
 
-function collatool_analytics_sources_calc_task_comment_sources($task_nid, &$values) {
+function collatool_analytics_cache_all_comment_sources() {
+  $values = array();
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'project')
+    ->execute();
+
+  if (!empty($result['node'])) {
+    foreach (array_keys($result['node']) as $project_nid) {
+      $project = node_load($project_nid);
+      foreach ($project->field_pr_tasks['und'] as $task) {
+        collatool_analytics_sources_calc_task_comment_sources($task['target_id'], $values);
+      }
+    }
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => 0,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'comment_sources',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_project_comment_sources($project) {
+  $values = array();
+  foreach ($project->field_pr_tasks['und'] as $task) {
+    collatool_analytics_sources_calc_task_comment_sources($task['target_id'], $values);
+  }
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $project->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'comment_sources',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_cache_task_comment_sources($task) {
+  $values = collatool_analytics_sources_calc_task_comment_sources($task->nid);
+
+  db_insert('collatool_analytics_cache')
+    ->fields(array(
+      'nid' => $task->nid,
+      'cached_data' => json_encode($values),
+      'cached_data_type' => 'comment_sources',
+      'last_update' => time(),
+    ))
+    ->execute();
+
+  return $values;
+}
+
+function collatool_analytics_sources_calc_task_comment_sources($task_nid, &$values = array()) {
   $result = db_select('comment', 'c')
     ->fields('c')
     ->condition('nid', $task_nid, '=')
@@ -351,5 +694,7 @@ function collatool_analytics_sources_calc_task_comment_sources($task_nid, &$valu
     } else
       $values['Website']++;
   }
+
+  return $values;
 }
 ///SOURCES END///

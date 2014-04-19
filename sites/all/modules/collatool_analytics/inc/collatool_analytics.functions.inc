@@ -117,6 +117,7 @@ function collatool_analytics_graph_comments_word_count($values) {
   );
 
   $options->yAxis = new StdClass();
+  $options->yAxis->allowDecimals = FALSE;
   $options->yAxis->title = new StdClass();
   $options->yAxis->title->text = t('Number of words');
 
@@ -241,9 +242,6 @@ function collatool_analytics_graph_comments_daytime_activity($values) {
     $series->name = $key;
     $series->type = 'area';
     $series->data = array();
-    for ($i = 0; $i < 23; $i++){
-      //$series->data[] = array($i, $seria[$i] ? $seria[$i] : 0);
-    }
 
     foreach ($seria as $key => $value) {
       $series->data[] = array($key, $value);

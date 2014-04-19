@@ -1,0 +1,29 @@
+<?php
+function collatool_analytics_schema() {
+  $schema['collatool_analytics_cache'] = array(
+    'description' => 'This table is to store cached version of analytics information',
+    'fields' => array(
+      'nid' => array(
+        'description' => 'The nid of the node that information is cached for',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'cached_data' => array(
+        'description' => 'The saved cached data',
+        'type' => 'text',
+      ),
+      'cached_data_type' => array(
+        'description' => 'The saved cached data',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'last_update' => array(
+        'description' => 'The datetime of the last update',
+        'type' => 'int',
+      ),
+    ),
+    'primary key' => array('nid', 'cached_data_type'),
+  );
+  return $schema;
+}
